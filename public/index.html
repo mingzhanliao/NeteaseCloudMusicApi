@@ -54,7 +54,19 @@
     }
   </style>
   <script>
-  $.post("http://yii.test.com/phpinfo.php");
+  $.ajax({
+  url: 'http://yii.test.com/phpinfo.php',
+  type: 'POST',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data);
+  },
+  xhrFields: {
+    withCredentials: true    // 此字段标识要跨域传数据
+  },
+  crossDomain: true
+});
+
   </script>
 </body>
 
